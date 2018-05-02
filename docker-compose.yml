@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  frontend:
+        image: frontend:release
+        ports: 
+          - 80:80
+
+  visualization:
+        image: ephys_analysis:release
+        volumes: 
+          - ../data:/app/data
+        ports: 
+          - 1235:1235
+
+  cell_browser:
+        image: shiny_cell_browser:release
+        volumes: 
+          - ../data:/app/data
+        ports: 
+          - 4242:4242
+
